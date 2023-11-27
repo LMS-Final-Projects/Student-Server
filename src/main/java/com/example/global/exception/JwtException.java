@@ -3,8 +3,8 @@ package com.example.global.exception;
 import lombok.Getter;
 
 @Getter
-public class DuplicateException extends RuntimeException{
-    public DuplicateException(String message) {
+public class JwtException extends RuntimeException{
+    public JwtException(String message) {
         super(message);
     }
 }

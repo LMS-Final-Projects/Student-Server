@@ -1,4 +1,4 @@
-package com.example.global.domain.response;
+package com.example.global.response;
 
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;

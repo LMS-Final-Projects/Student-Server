@@ -1,7 +1,6 @@
-package com.example.student.dto;
+package com.example.student.dto.response;
 
 import com.example.student.entity.Student;
-import jakarta.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +8,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
-public class StudentDto {
+public class StudentResponse {
 
     private UUID id;
     private String studentName;
@@ -18,7 +17,7 @@ public class StudentDto {
     private String email;
     private String phNumber;
 
-    public StudentDto(Student student) {
+    public StudentResponse(Student student) {
         this.id = student.getId();
         this.studentName = student.getStudentName();
         this.year = student.getYear();
@@ -26,4 +25,5 @@ public class StudentDto {
         this.email = student.getEmail();
         this.phNumber = student.getPhNumber();
     }
+
 }

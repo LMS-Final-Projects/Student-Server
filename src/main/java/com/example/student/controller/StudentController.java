@@ -1,11 +1,9 @@
 package com.example.student.controller;
 
 
-import com.example.global.domain.response.LmsResponse;
-import com.example.global.exception.NotFoundException;
-import com.example.student.dto.StudentDto;
-import com.example.student.entity.Student;
-import com.example.student.request.StudentRequest;
+import com.example.global.response.LmsResponse;
+import com.example.student.dto.response.StudentResponse;
+import com.example.student.dto.request.StudentRequest;
 import com.example.student.servcie.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -30,17 +28,17 @@ public class StudentController {
 
     //학생 정보 찾기.
     @GetMapping("/info")
-    public LmsResponse<StudentDto> findStudent(StudentRequest request) {
-        StudentDto student = studentService.findStudent(request);
+    public LmsResponse<StudentResponse> findStudent(StudentRequest request) {
+        StudentResponse student = studentService.findStudent(request);
         return new LmsResponse<>(HttpStatus.OK, student, "서비스 성공", "", LocalDateTime.now());
     }
 
 
     //학생 정보 변경
     @PostMapping("/info")
-    public LmsResponse<StudentDto> updateStudent(StudentRequest request){
-        StudentDto studentDto = studentService.updateStudent(request);
-        return new LmsResponse<>(HttpStatus.OK, studentDto, "서비스 성공", "", LocalDateTime.now());
+    public LmsResponse<StudentResponse> updateStudent(StudentRequest request){
+        StudentResponse studentResponse = studentService.updateStudent(request);
+        return new LmsResponse<>(HttpStatus.OK, studentResponse, "서비스 성공", "", LocalDateTime.now());
     }
 
 }

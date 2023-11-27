@@ -1,4 +1,4 @@
-package com.example.student.request;
+package com.example.student.dto.request;
 
 
 import com.example.student.entity.Student;

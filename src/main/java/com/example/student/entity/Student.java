@@ -30,7 +30,5 @@ public class Student {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    public <E> Student(UUID uuid, String 채오성, int i, int i1, String mail, String s, Status status, List<E> math) {
-    }
 }
 

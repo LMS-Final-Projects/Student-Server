@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -54,7 +55,7 @@ class StudentControllerTest {
                             .contentType(MediaType.APPLICATION_JSON)
                             .content(objectMapper.writeValueAsBytes(dto))
                     )
-                    .andExpect(status().isCreated())
+                    .andExpect(status().isOk())
                     .andDo(print());
         }
 
@@ -106,7 +107,7 @@ class StudentControllerTest {
             StudentRequest dto = new StudentRequest(UUID.randomUUID(), "채오성", null, 202317, "yrias8700@google.com", "010-6309-7402", List.of("math", "science"));
 
             // When
-            doThrow(new MethodException("찾기기능 실패")).when(studentService).findStudent(any(StudentRequest.class));
+            doThrow(new MethodException("찾기 기능 실패")).when(studentService).findStudent(any(StudentRequest.class));
 
             // Then
             mockMvc.perform(get("/api/v1/student/info")

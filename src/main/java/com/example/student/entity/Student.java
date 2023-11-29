@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -23,7 +24,13 @@ public class Student {
     @Column(unique = true)
     private String email;
     @Column(unique = true)
+
     private String phNumber;
 
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    public <E> Student(UUID uuid, String 채오성, int i, int i1, String mail, String s, Status status, List<E> math) {
+    }
 }
 

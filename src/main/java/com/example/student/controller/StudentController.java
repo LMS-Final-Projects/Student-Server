@@ -20,15 +20,14 @@ public class StudentController {
 
     //학생 정보 저장.
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public LmsResponse<Void> saveStudent(@RequestBody StudentRequest request){
         studentService.saveStudent(request);
-        return new LmsResponse<>(HttpStatus.OK, null, "서비스 성공", "", LocalDateTime.now());
+        return new LmsResponse<>(HttpStatus.CREATED, null, "서비스 성공", "", LocalDateTime.now());
     }
 
     //학생 정보 찾기.
     @GetMapping("/info")
-    public LmsResponse<StudentResponse> findStudent(StudentRequest request) {
+    public LmsResponse<StudentResponse> findStudent(@RequestBody StudentRequest request) {
         StudentResponse student = studentService.findStudent(request);
         return new LmsResponse<>(HttpStatus.OK, student, "서비스 성공", "", LocalDateTime.now());
     }
@@ -36,7 +35,7 @@ public class StudentController {
 
     //학생 정보 변경
     @PostMapping("/info")
-    public LmsResponse<StudentResponse> updateStudent(StudentRequest request){
+    public LmsResponse<StudentResponse> updateStudent(@RequestBody StudentRequest request){
         StudentResponse studentResponse = studentService.updateStudent(request);
         return new LmsResponse<>(HttpStatus.OK, studentResponse, "서비스 성공", "", LocalDateTime.now());
     }

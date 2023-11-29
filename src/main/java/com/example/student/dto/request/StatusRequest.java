@@ -1,5 +1,6 @@
 package com.example.student.dto.request;
 
+
 import com.example.student.entity.Status;
 import com.example.student.entity.Student;
 import lombok.AllArgsConstructor;
@@ -15,10 +16,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class StatusRequest {
-
     private UUID id;
     private Status status;
-
     public Student toEntity(){
         return Student.builder()
                 .id(id)

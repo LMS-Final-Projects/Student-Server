@@ -1,12 +1,8 @@
 package com.example.student.controller;
 
 import com.example.global.exception.MethodException;
-import com.example.student.controller.ManagerController;
-import com.example.student.controller.StudentController;
 import com.example.student.dto.request.StatusRequest;
-import com.example.student.dto.request.StudentRequest;
 import com.example.student.dto.response.StudentResponse;
-import com.example.student.entity.Status;
 import com.example.student.entity.Student;
 import com.example.student.servcie.StudentService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,7 +10,6 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;

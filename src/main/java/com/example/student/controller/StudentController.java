@@ -1,9 +1,10 @@
 package com.example.student.controller;
 
 
-import com.example.global.response.LmsResponse;
-import com.example.student.dto.response.StudentResponse;
+
 import com.example.student.dto.request.StudentRequest;
+import com.example.student.dto.response.StudentResponse;
+import com.example.student.global.response.LmsResponse;
 import com.example.student.servcie.StudentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,12 +19,6 @@ public class StudentController {
 
     private final StudentService studentService;
 
-    //학생 정보 저장.
-    @PostMapping
-    public LmsResponse<Void> saveStudent(@RequestBody StudentRequest request){
-        studentService.saveStudent(request);
-        return new LmsResponse<>(HttpStatus.CREATED, null, "서비스 성공", "", LocalDateTime.now());
-    }
 
     //학생 정보 찾기.
     @GetMapping("/info")

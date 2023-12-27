@@ -1,11 +1,11 @@
 package com.example.student.servcie;
 
 
-import com.example.global.exception.MethodException;
-import com.example.global.exception.NotFoundException;
 import com.example.student.dto.request.StatusRequest;
 import com.example.student.dto.response.StudentResponse;
 import com.example.student.entity.Student;
+import com.example.student.global.exception.MethodException;
+import com.example.student.global.exception.NotFoundException;
 import com.example.student.repository.StudentRepository;
 import com.example.student.dto.request.StudentRequest;
 import lombok.RequiredArgsConstructor;
@@ -22,16 +22,6 @@ public class StudentService {
 
     private final StudentRepository repository;
 
-    //학생 회원가입 할때, 정보 저장.
-    @Transactional
-    public void saveStudent(StudentRequest request) {
-
-        try {
-            repository.save(request.toEntity());
-        } catch (Exception e) {
-            throw new MethodException("회원가입 정보 저장 실패");
-        }
-    }
 
     //학생 정보 찾기.
     public StudentResponse findStudent(StudentRequest request) {

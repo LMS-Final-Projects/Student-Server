@@ -1,13 +1,12 @@
 package com.example.student.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -16,19 +15,28 @@ import java.util.UUID;
 @Builder
 public class Student {
 
-    @Id @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @Id
+    private String id;
+    @Column(nullable = false)
     private String studentName;
+    @Column(nullable = false)
     private Integer year;
+    @Column(nullable = false)
     private Integer studentNumber;
-    @Column(unique = true)
+    @Column(nullable = false)
     private String email;
-    @Column(unique = true)
-
+    @Column(nullable = false)
     private String phNumber;
+
+    @Column(nullable = false)
+    private String status;
+    @Column(nullable = false)
+    private String majorList;
+
 
     @Enumerated(EnumType.STRING)
     private Status status;
+
 
 }
 

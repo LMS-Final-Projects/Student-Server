@@ -26,11 +26,9 @@ public class StudentService {
     //학생 정보 찾기.
     public StudentResponse findStudent(StudentRequest request) {
 
-        Optional<Student> byStudentId = repository.findByStudentId(request.getId());
-        if (byStudentId.isPresent()) {
-            StudentResponse dto = new StudentResponse(byStudentId.get());
-            return dto;
-        } else throw new NotFoundException("해당 유저가 없습니다.");
+        Student student = repository.findByStudentId(request.getId()).orElseThrow(() -> new NotFoundException("해당 유저가 없습니다."));
+        StudentResponse dto = new StudentResponse(student);
+        return dto;
     }
 
 

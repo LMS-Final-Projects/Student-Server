@@ -27,9 +27,16 @@ public class Student {
     private String email;
     @Column(nullable = false)
     private String phNumber;
+
     @Column(nullable = false)
     private String status;
     @Column(nullable = false)
     private String majorList;
+
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+
 }
 

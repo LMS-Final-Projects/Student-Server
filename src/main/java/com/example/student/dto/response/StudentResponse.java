@@ -4,13 +4,11 @@ import com.example.student.entity.Student;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.UUID;
-
 @Getter
 @Setter
 public class StudentResponse {
 
-    private UUID id;
+    private String id;
     private String studentName;
     private Integer year;
     private Integer studentNumber;

@@ -16,13 +16,12 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Builder
 public class StudentRequest {
-    private UUID id;
+    private String id;
     private String studentName;
     private Integer year;
-    private int studentNumber;
+    private Integer studentNumber;
     private String email;
     private String phNumber;
-    private List<String> majorNames;
 
     public Student toEntity(){
         return Student.builder()

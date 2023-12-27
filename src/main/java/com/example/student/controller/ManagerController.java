@@ -1,11 +1,10 @@
 package com.example.student.controller;
 
 
-import com.example.global.response.LmsResponse;
 import com.example.student.dto.request.StatusRequest;
 import com.example.student.dto.response.StudentResponse;
+import com.example.student.global.response.LmsResponse;
 import com.example.student.servcie.StudentService;
-import jakarta.ws.rs.GET;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/manager/students")
+@RequestMapping("/api/v1/manager")
 @RequiredArgsConstructor
 public class ManagerController {
 

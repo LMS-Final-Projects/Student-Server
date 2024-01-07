@@ -1,6 +1,7 @@
 package com.example.student.dto.request;
 
 
+import com.example.student.entity.Status;
 import com.example.student.entity.Student;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -31,6 +32,7 @@ public class StudentRequest {
                 .studentNumber(studentNumber)
                 .email(email)
                 .phNumber(phNumber)
+                .status(Status.재학)
                 .build();
     }
 }

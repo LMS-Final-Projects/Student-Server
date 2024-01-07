@@ -32,6 +32,7 @@ public class StudentService {
             StudentResponse dto = new StudentResponse(byStudentId.get());
             return dto;
         } else throw new NotFoundException("해당 유저가 없습니다.");
+
     }
 
 

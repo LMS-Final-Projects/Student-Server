@@ -24,15 +24,20 @@ public class StudentService {
 
 
     //학생 정보 찾기.
-    public StudentResponse findStudent(StudentRequest request) {
+    @Transactional
+    public StudentResponse findStudent(String memberId) {
 
-        Student student = repository.findByStudentId(request.getId()).orElseThrow(() -> new NotFoundException("해당 유저가 없습니다."));
-        StudentResponse dto = new StudentResponse(student);
-        return dto;
+        Optional<Student> byStudentId = repository.findByStudentId(memberId);
+        if (byStudentId.isPresent()) {
+            StudentResponse dto = new StudentResponse(byStudentId.get());
+            return dto;
+        } else throw new NotFoundException("해당 유저가 없습니다.");
+
     }
 
 
     //학생 정보 변경.
+    @Transactional
     public StudentResponse updateStudent(StudentRequest request) {
         Student student = repository.findByStudentId(request.getId()).orElseThrow(() -> new NotFoundException("해당 유저가 없습니다."));
         repository.findByStudentId(request.getId());
@@ -41,6 +46,7 @@ public class StudentService {
     }
 
     //학생 상태 변경
+    @Transactional
     public StudentResponse updateStatus(StatusRequest request) {
         Student student = repository.findByStudentId(request.getId()).orElseThrow(() -> new NotFoundException("해당 유저가 없습니다."));
         repository.findByStudentId(request.getId());
@@ -50,6 +56,7 @@ public class StudentService {
 
 
     //학생 전체 조회.
+    @Transactional
     public List<StudentResponse> getAll() {
         List<StudentResponse> dtoList = new ArrayList<>();
         try {

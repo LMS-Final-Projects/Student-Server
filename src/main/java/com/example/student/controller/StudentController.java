@@ -21,9 +21,9 @@ public class StudentController {
 
 
     //학생 정보 찾기.
-    @GetMapping("/info")
-    public LmsResponse<StudentResponse> findStudent(@RequestBody StudentRequest request) {
-        StudentResponse student = studentService.findStudent(request);
+    @GetMapping("{id}")
+    public LmsResponse<StudentResponse> findStudent(@PathVariable("id")String id) {
+        StudentResponse student = studentService.findStudent(id);
         return new LmsResponse<>(HttpStatus.OK, student, "서비스 성공", "", LocalDateTime.now());
     }
 
